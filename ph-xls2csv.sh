@@ -4,15 +4,13 @@
 # The output is a series of normalized, cleaned up and geocoded CSV files
 
 # INSTRUCTIONS
-# $ bash ph-processor.sh -i [file-name]
-# Example: bash ph-processor.sh -i Map_data.xls
+# $ bash ph-xls2csv.sh -i [file-name]
+# Example: bash ph-xls2csv.sh -i Map_data.xls
 
 # TODO
 # review //TEMP
 # Add check for XLS or XLSX
-# Line-breaks and _x000D_ should be cleaned up on long texts.
 # Check format of date last updated
-# Check if geocode.py is available
 # Check not to overwrite existing files
 
 set -u
