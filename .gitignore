@@ -1,0 +1,11 @@
+GRANTS.csv
+ORGS.csv
+SCHOOLS.csv
+archived/*
+tmp/*
+*.csv
+*.vrt
+*json
+markdown/*
+source/*.xls*
+sample-content.sh
