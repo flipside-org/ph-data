@@ -7,5 +7,5 @@ tmp/*
 *.vrt
 *json
 markdown/*
-source/*.xls*
-sample-content.sh
+source/*
+!source/.gitkeep
