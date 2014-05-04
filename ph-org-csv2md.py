@@ -35,8 +35,8 @@ def yaml_array(text, separator = ','):
 	"Splits a string by a separator and stores the result as a YAML array"
 	if text.strip(' \n'):
 		array = ''
-		for keyword in text.split(separator):
-			array += '\n' + indent() + '- ' + keyword
+		for substring in text.split(separator):
+			array += '\n' + indent() + '- ' +	 substring
 		return array
 	else:
 		# If empty, we return nothing
@@ -141,16 +141,16 @@ with open(file_in, 'rb') as ifile:
 		f.write('service_opp: ' + row[fields['serv']] + '\n')
 		f.write('services: ' + yaml_multiline_string(row[fields['serv1']], True) + yaml_multiline_string(row[fields['serv2']], True) + '\n')
 		f.write('\n')
-		f.write('learn: ' + yaml_multiline_string(row[fields['learn']]) + '\n')
-		f.write('cont_relationship: ' + yaml_multiline_string(row[fields['cont']]) + '\n')
+		f.write('learn: ' + yaml_array(row[fields['learn']]) + '\n')
+		f.write('cont_relationship: ' + yaml_array(row[fields['cont']]) + '\n')
 		f.write('\n')
 		f.write('salutation: ' + row[fields['sal']] + '\n')
 		f.write('first_name: ' + row[fields['first']] + '\n')
 		f.write('last_name: ' + row[fields['last']] + '\n')
 		f.write('title_contact_person: ' + row[fields['title']] + '\n')
 		f.write('\n')
-		f.write('city:' + row[fields['cit']] + '\n')
-		f.write('state:' + row[fields['st']] + '\n')
+		f.write('city: ' + row[fields['cit']] + '\n')
+		f.write('state: ' + row[fields['st']] + '\n')
 		f.write('address: |\n')
 		f.write(indent() + row[fields['add']] + md_linebreak  + '\n')
 		f.write(indent() + row[fields['cit']] + ' ' + row[fields['st']] + ' ' + row[fields['zip']] + '\n')
