@@ -29,7 +29,8 @@ This python script generates Penny Harvest organisation profiles in Markdown for
 
 For example: ```python ph-xls2csv.sh ORGS.csv markdown```
 
-# Contributors
-Olaf Veerman - @olafveerman
-Daniel da Silva - @danielfdsilva
-Ricardo Mestre - @ricardomestre
+## Team
+
+Daniel da Silva - [Github](https://github.com/danielfdsilva)  
+Ricardo Mestre - [Github](https://github.com/ricardomestre)  
+Olaf Veerman - [Github](https://github.com/olafveerman)
