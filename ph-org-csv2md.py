@@ -102,9 +102,9 @@ with open(file_in, 'rb') as ifile:
 
 		# Define the note category
 		if row[fields['nat']]:
-			category = "national_org"
+			category = "national"
 		else:
-			category = "local_org"
+			category = "local"
 
 		# Sanitize the prefered contact method. We have to account for multiple
 		# contact methods.
