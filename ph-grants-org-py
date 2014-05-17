@@ -1,0 +1,55 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+# Script to process the grant data per organization.
+# The data should be provided in CSV format (processed by ph-xls2csv.sh). 
+# The script combines all the grants for one particular organization in
+# a unique CSV file.
+#
+# @param string file_in
+# The csv file containing the data
+
+import csv
+import sys
+import os
+
+file_in = sys.argv[1]
+folder_out = 'csv-data/orgs/'
+
+def generate_unique_ids(fn, col):
+  "Generate a set of unique ids."
+  ids = set()
+  with open(fn, 'rb') as ifile:
+    reader = csv.reader(ifile)
+    header = reader.next()
+    for row in reader:
+      ids.add(row[col])
+    return ids 
+
+def write_csv(method,data,org):
+  file_out = str(folder_out) + org + '.csv'
+  with open(file_out,method) as ofile:
+    writer = csv.writer(ofile)
+    writer.writerow(data)
+
+def main():
+  # Check if folder exists, otherwise create it
+  if not os.path.exists(folder_out):
+    os.makedirs(folder_out)
+
+  # Create a CSV file per organization and add the header
+  unique_ids = generate_unique_ids(file_in,2)
+  header = ['grant_id','school_id','org_id','year','district','school_name','grant_type','grant_amount','org_name','grant_summary_edited','grant_impact_area']
+  for org in unique_ids:
+    write_csv('w',header,org)
+
+  # Loop over all the grants and add them to the proper organization csv
+  with open(file_in, 'rb') as ifile:
+    reader = csv.reader(ifile)
+    header = reader.next()
+    for row in reader:
+      write_csv('a',row,row[2])
+
+
+if __name__ == "__main__":
+    main()
