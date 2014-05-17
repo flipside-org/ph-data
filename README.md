@@ -21,13 +21,22 @@ For example: ```bash ph-processor.sh -i Map_data.xls```
 - sed
 
 ## 2. ph-org-csv2md.py
-This python script generates Penny Harvest organisation profiles in Markdown format from the CSV file prepared by ```ph-xls2csv.sh```.
+This python script generates Penny Harvest organization profiles in Markdown format from the CSV file prepared by ```ph-xls2csv.sh```.
 
 ### Usage
 
-```python ph-xls2csv.sh [file_in] [folder_out]```
+```python ph-xls2csv.py [folder_out] [file_in]```
 
-For example: ```python ph-xls2csv.sh ORGS.csv markdown```
+For example: ```python ph-xls2csv.py markdown ORGS.csv```
+
+## 3. ph-grants-org.py
+Processes the grant information per organization and stores it in separate CSV files in the folder: ```csv-data/orgs```
+
+### Usage
+
+```python ph-grants-org-py [file_in]```
+
+For example: ```python ph-grants-org-py GRANTS.csv```
 
 ## Team
 
