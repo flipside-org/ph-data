@@ -15,6 +15,7 @@ import os
 
 file_in = sys.argv[1]
 folder_out = 'csv-data/orgs/'
+csv_header = ['grant_id','school_id','org_id','year','district','school_name','grant_type','grant_amount','org_name','grant_summary_edited','grant_impact_area']
 
 def generate_unique_ids(fn, col):
   "Generate a set of unique ids."
@@ -39,9 +40,8 @@ def main():
 
   # Create a CSV file per organization and add the header
   unique_ids = generate_unique_ids(file_in,2)
-  header = ['grant_id','school_id','org_id','year','district','school_name','grant_type','grant_amount','org_name','grant_summary_edited','grant_impact_area']
   for org in unique_ids:
-    write_csv('w',header,org)
+    write_csv('w',csv_header,org)
 
   # Loop over all the grants and add them to the proper organization csv
   with open(file_in, 'rb') as ifile:
